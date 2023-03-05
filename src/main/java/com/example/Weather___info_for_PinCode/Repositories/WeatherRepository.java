@@ -12,4 +12,5 @@ import java.util.Optional;
 public interface WeatherRepository extends JpaRepository<WeatherInfo, Long> {
 
     Optional<WeatherInfo> findByPincodeAndDate(String pincode, LocalDate date);
+
 }

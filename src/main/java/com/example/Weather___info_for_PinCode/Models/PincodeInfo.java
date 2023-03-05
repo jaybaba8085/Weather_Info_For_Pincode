@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
 import javax.persistence.*;
-import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Data
@@ -15,9 +13,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "weather_info")
-public class WeatherInfo {
-
+@Table(name = "Pincode_info")
+public class PincodeInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,5 +25,18 @@ public class WeatherInfo {
     @Column(nullable = false)
     private LocalDate date;
 
-    private String response;
+    @Column(nullable = false)
+    private Double latitude;
+
+    @Column(nullable = false)
+    private Double longitude;
+
+    @Column(nullable = false)
+    private Double temperature;
+
+    public PincodeInfo(String pincode, Double latitude, Double longitude) {
+        this.pincode = pincode;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 }
